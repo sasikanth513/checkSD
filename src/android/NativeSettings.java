@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.content.Context;
 
 import android.provider.Settings;
+import android.net.Uri;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
