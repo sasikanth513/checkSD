@@ -26,18 +26,20 @@ public class NativeSettings extends CordovaPlugin {
         PluginResult.Status status = PluginResult.Status.OK;
         String result = "";
 
- 
+
         if (action.equals("open")) {
-            this.cordova.getActivity().startActivity(new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS));
+          Intent i = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+          i.addCategory(Intent.CATEGORY_DEFAULT);
+          i.setData(Uri.parse("package:com.simpleatlas.schools.mitsloan"));
+          this.cordova.getActivity().startActivity(i);
         }
         else {
              status = PluginResult.Status.INVALID_ACTION;
         }
-        
+
         callbackContext.sendPluginResult(new PluginResult(status, result));
 
         return true;
 
     }
 }
-
