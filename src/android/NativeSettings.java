@@ -28,7 +28,7 @@ public class NativeSettings extends CordovaPlugin {
 
  
         if (action.equals("open")) {
-            this.cordova.getActivity().startActivity(new Intent(android.provider.Settings.ACTION_APPLICATION_SETTINGS));
+            this.cordova.getActivity().startActivity(new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS));
         }
         else {
              status = PluginResult.Status.INVALID_ACTION;
