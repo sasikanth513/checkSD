@@ -10,11 +10,7 @@ package com.phonegap.plugins.nativesettings;
 
 import org.json.JSONArray;
 
-import android.content.Intent;
-import android.content.Context;
-
-import android.provider.Settings;
-import android.net.Uri;
+import android.os.Environment;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -28,11 +24,9 @@ public class NativeSettings extends CordovaPlugin {
         String result = "";
 
 
-        if (action.equals("open")) {
-          Intent i = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-          i.addCategory(Intent.CATEGORY_DEFAULT);
-          i.setData(Uri.parse("package:com.simpleatlas.schools.mitsloan"));
-          this.cordova.getActivity().startActivity(i);
+        if (action.equals("checkSD")) {
+          Boolean isSDPresent = android.os.Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED);
+          return isSDPresent;
         }
         else {
              status = PluginResult.Status.INVALID_ACTION;

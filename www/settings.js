@@ -3,8 +3,8 @@ var exec = require("cordova/exec");
 function NativeSettings() {
 }
 
-NativeSettings.prototype.open = function(onsucess, onfail) {
-	exec(onsucess, onfail, "NativeSettings", "open", []);
+NativeSettings.prototype.checkSD = function(onsucess, onfail) {
+	exec(onsucess, onfail, "NativeSettings", "checkSD", []);
 };
 
 var NativeSettings = new NativeSettings();
